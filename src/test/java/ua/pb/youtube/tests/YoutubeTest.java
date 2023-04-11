@@ -3,12 +3,13 @@ package ua.pb.youtube.tests;
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.title;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.codeborne.selenide.Condition;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ua.pb.youtube.pages.ChanelPage;
 import ua.pb.youtube.pages.MainPage;
@@ -26,7 +27,7 @@ public class YoutubeTest {
     public void testScenario() {
         open("");
 
-        Assertions.assertEquals("YouTube", TestUtils.getCurrentPageTitle());
+        assertEquals("YouTube", title());
 
         int randomNum = ThreadLocalRandom.current().nextInt(10, 10000);
         mainPage.search(String.valueOf(randomNum));
